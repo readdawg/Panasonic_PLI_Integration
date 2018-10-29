@@ -16,5 +16,25 @@ namespace Panasonic_PLI_Integration
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Open_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Lockdown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
