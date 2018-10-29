@@ -73,6 +73,7 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -90,9 +91,11 @@
             // 
             // pb_Video
             // 
+            this.pb_Video.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pb_Video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_Video.Location = new System.Drawing.Point(173, 28);
             this.pb_Video.Name = "pb_Video";
-            this.pb_Video.Size = new System.Drawing.Size(615, 362);
+            this.pb_Video.Size = new System.Drawing.Size(615, 381);
             this.pb_Video.TabIndex = 2;
             this.pb_Video.TabStop = false;
             // 

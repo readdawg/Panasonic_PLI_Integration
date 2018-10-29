@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Panasonic_PLI_Integration
 {
@@ -34,6 +35,13 @@ namespace Panasonic_PLI_Integration
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
+            //Close application
+            this.Close();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Close application
             this.Close();
         }
     }
