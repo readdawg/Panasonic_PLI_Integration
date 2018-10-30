@@ -38,6 +38,8 @@
             this.btn_Open = new System.Windows.Forms.Button();
             this.btn_Lockdown = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
+            this.btn_Connect = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Video)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +51,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1255, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,13 +67,13 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // settingsToolStripMenuItem
@@ -93,6 +95,7 @@
             this.pb_Video.Location = new System.Drawing.Point(173, 28);
             this.pb_Video.Name = "pb_Video";
             this.pb_Video.Size = new System.Drawing.Size(615, 362);
+            this.pb_Video.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Video.TabIndex = 2;
             this.pb_Video.TabStop = false;
             // 
@@ -102,7 +105,7 @@
             this.btn_Open.Name = "btn_Open";
             this.btn_Open.Size = new System.Drawing.Size(132, 23);
             this.btn_Open.TabIndex = 3;
-            this.btn_Open.Text = "btn_Open";
+            this.btn_Open.Text = "Open Door";
             this.btn_Open.UseVisualStyleBackColor = true;
             this.btn_Open.Click += new System.EventHandler(this.btn_Open_Click);
             // 
@@ -126,11 +129,31 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
+            // btn_Connect
+            // 
+            this.btn_Connect.Location = new System.Drawing.Point(449, 415);
+            this.btn_Connect.Name = "btn_Connect";
+            this.btn_Connect.Size = new System.Drawing.Size(132, 23);
+            this.btn_Connect.TabIndex = 6;
+            this.btn_Connect.Text = "Connect";
+            this.btn_Connect.UseVisualStyleBackColor = true;
+            this.btn_Connect.Click += new System.EventHandler(this.btn_Connect_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(795, 28);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(460, 410);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1255, 450);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btn_Connect);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Lockdown);
             this.Controls.Add(this.btn_Open);
@@ -161,6 +184,8 @@
         private System.Windows.Forms.Button btn_Open;
         private System.Windows.Forms.Button btn_Lockdown;
         private System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.Button btn_Connect;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
