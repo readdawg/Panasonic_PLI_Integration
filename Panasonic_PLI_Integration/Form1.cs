@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using TokenAuth;
-//using MjpegProcessor;
+using TokenAuth;
+using MjpegProcessor;
 using System.Drawing.Drawing2D;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace Panasonic_PLI_Integration
 {
@@ -18,9 +20,9 @@ namespace Panasonic_PLI_Integration
 
         // Declare variables
         string sEncryptedToken = "";
-        string adderess = Properties.Settings.Default.ApiAddress;
-        string user = Properties.Settings.Default.UserName;
-        string password = Properties.Settings.Default.Password;
+        //string adderess = Properties.Settings.Default.ApiAddress;
+        //string user = Properties.Settings.Default.UserName;
+        //string password = Properties.Settings.Default.Password;
         long timeout = 31622400;
         string cameraid = "785451355";
         
@@ -44,9 +46,8 @@ namespace Panasonic_PLI_Integration
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
-            var oUserToken = new TokenAuth.UserToken(user, password, timeout);
-            var encryptedToken = oUserToken.Encrypt();
-            sEncryptedToken = encryptedToken;
+
+            
 
         }
 
@@ -61,10 +62,41 @@ namespace Panasonic_PLI_Integration
         }
 
         private void btn_Connect_Click(object sender, EventArgs e)
-        {
-            try {
-            
-            string url3 = "http://" + adderess + ":9000/api/v1/video/" + cameraid + "/mjpeg?token=" + sEncryptedToken;
+        {            
+
+            //Declare variables
+            string user = Properties.Settings.Default.UserName;
+            string password = Properties.Settings.Default.Password;
+            string adderess = Properties.Settings.Default.ApiAddress;
+
+            //Generate encrypted user token
+            var oUserToken = new TokenAuth.UserToken(user, password, timeout);
+            var encryptedToken = oUserToken.Encrypt();
+            sEncryptedToken = encryptedToken;
+
+            //Pull camera list from API
+            string url = "http://" + adderess + ":9000/api/v1/cameras";
+
+            //Create Data Table of JSON results
+            DataTable jsonDataDisplay()
+            {
+                using (var webClient = new WebClient())
+                {
+                    String rawJSON = webClient.DownloadString(url);
+                    var table = JsonConvert.DeserializeObject<DataTable>(rawJSON);
+                    return table;
+                }
+            }            
+
+            //Populate list from JSON objects
+            lb_cameras.DataSource = jsonDataDisplay();
+            lb_cameras.DisplayMember = "Name";
+            lb_cameras.ValueMember = "ID";
+
+            //Load MJPEG stream into picture box
+            try
+            {
+                string url3 = "http://" + adderess + ":9000/api/v1/video/" + cameraid + "/mjpeg?token=" + sEncryptedToken;                
 
                 MjpegDecoder mjpeg = new MjpegDecoder();
                 mjpeg.FrameReady += mjpeg_FrameReady;
@@ -72,9 +104,44 @@ namespace Panasonic_PLI_Integration
             }
             catch (System.Net.WebException e1)
             {
-
                 MessageBox.Show("Web Exception Thrown: {0}", e1.Message);
             }
+        }        
+
+        private void connectionSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Show Connection settings form
+            ConnectionSettings connSet = new ConnectionSettings();
+            connSet.Show();
+            connSet.TopMost = true;
+        }
+
+        private void lb_Cameras_SelectedIndex(object sender, EventArgs e)
+        {
+            //Declare variables
+            string adderess = Properties.Settings.Default.ApiAddress;
+
+            if (lb_cameras.SelectedIndex != -1)
+            {
+
+                MessageBox.Show("List Item Has Changed");
+
+            }
+
+            //try
+            //{
+
+            //    string url3 = "http://" + adderess + ":9000/api/v1/video/" + cameraid + "/mjpeg?token=" + sEncryptedToken;
+
+            //    MjpegDecoder mjpeg = new MjpegDecoder();
+            //    mjpeg.FrameReady += mjpeg_FrameReady;
+            //    mjpeg.ParseStream(new Uri(url3));
+            //}
+            //catch (System.Net.WebException e1)
+            //{
+
+            //    MessageBox.Show("Web Exception Thrown: {0}", e1.Message);
+            //}
         }
 
         void mjpeg_FrameReady(object sender, FrameReadyEventArgs e)
@@ -96,12 +163,10 @@ namespace Panasonic_PLI_Integration
 
         }
 
-        private void connectionSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lb_Cameras_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Show Connection settings form
-            ConnectionSettings connSet = new ConnectionSettings();
-            connSet.Show();
-            connSet.TopMost = true;
+
+
         }
     }
         

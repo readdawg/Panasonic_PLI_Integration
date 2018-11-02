@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="UserName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">administrator</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ApiAddress" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">10.10.0.28</Value>
     </Setting>
     <Setting Name="IsConfigured" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

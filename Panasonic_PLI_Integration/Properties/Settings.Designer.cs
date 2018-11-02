@@ -25,7 +25,7 @@ namespace Panasonic_PLI_Integration.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("administrator")]
         public string UserName {
             get {
                 return ((string)(this["UserName"]));
@@ -49,7 +49,7 @@ namespace Panasonic_PLI_Integration.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.10.0.28")]
         public string ApiAddress {
             get {
                 return ((string)(this["ApiAddress"]));

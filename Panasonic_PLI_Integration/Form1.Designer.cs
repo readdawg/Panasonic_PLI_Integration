@@ -33,13 +33,13 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lb_Cameras = new System.Windows.Forms.ListBox();
+            this.connectionSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lb_cameras = new System.Windows.Forms.ListBox();
             this.pb_Video = new System.Windows.Forms.PictureBox();
             this.btn_Open = new System.Windows.Forms.Button();
             this.btn_Lockdown = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Connect = new System.Windows.Forms.Button();
-            this.connectionSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Video)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(807, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(799, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -84,13 +84,21 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
-            // lb_Cameras
+            // connectionSettingsToolStripMenuItem
             // 
-            this.lb_Cameras.FormattingEnabled = true;
-            this.lb_Cameras.Location = new System.Drawing.Point(13, 28);
-            this.lb_Cameras.Name = "lb_Cameras";
-            this.lb_Cameras.Size = new System.Drawing.Size(153, 407);
-            this.lb_Cameras.TabIndex = 1;
+            this.connectionSettingsToolStripMenuItem.Name = "connectionSettingsToolStripMenuItem";
+            this.connectionSettingsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.connectionSettingsToolStripMenuItem.Text = "Connection Settings";
+            this.connectionSettingsToolStripMenuItem.Click += new System.EventHandler(this.connectionSettingsToolStripMenuItem_Click);
+            // 
+            // lb_cameras
+            // 
+            this.lb_cameras.FormattingEnabled = true;
+            this.lb_cameras.Location = new System.Drawing.Point(13, 28);
+            this.lb_cameras.Name = "lb_cameras";
+            this.lb_cameras.Size = new System.Drawing.Size(153, 407);
+            this.lb_cameras.TabIndex = 1;
+            this.lb_cameras.SelectedIndexChanged += new System.EventHandler(this.lb_Cameras_SelectedIndexChanged);
             // 
             // pb_Video
             // 
@@ -141,24 +149,17 @@
             this.btn_Connect.UseVisualStyleBackColor = true;
             this.btn_Connect.Click += new System.EventHandler(this.btn_Connect_Click);
             // 
-            // connectionSettingsToolStripMenuItem
-            // 
-            this.connectionSettingsToolStripMenuItem.Name = "connectionSettingsToolStripMenuItem";
-            this.connectionSettingsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.connectionSettingsToolStripMenuItem.Text = "Connection Settings";
-            this.connectionSettingsToolStripMenuItem.Click += new System.EventHandler(this.connectionSettingsToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 450);
+            this.ClientSize = new System.Drawing.Size(799, 450);
             this.Controls.Add(this.btn_Connect);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Lockdown);
             this.Controls.Add(this.btn_Open);
             this.Controls.Add(this.pb_Video);
-            this.Controls.Add(this.lb_Cameras);
+            this.Controls.Add(this.lb_cameras);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -179,7 +180,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ListBox lb_Cameras;
+        private System.Windows.Forms.ListBox lb_cameras;
         private System.Windows.Forms.PictureBox pb_Video;
         private System.Windows.Forms.Button btn_Open;
         private System.Windows.Forms.Button btn_Lockdown;

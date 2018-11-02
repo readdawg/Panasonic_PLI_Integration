@@ -68,7 +68,7 @@
             this.tb_address.Location = new System.Drawing.Point(12, 65);
             this.tb_address.Name = "tb_address";
             this.tb_address.Size = new System.Drawing.Size(162, 20);
-            this.tb_address.TabIndex = 2;
+            this.tb_address.TabIndex = 3;
             // 
             // label3
             // 
@@ -85,7 +85,7 @@
             this.tb_password.Name = "tb_password";
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(162, 20);
-            this.tb_password.TabIndex = 4;
+            this.tb_password.TabIndex = 2;
             // 
             // btn_save
             // 
