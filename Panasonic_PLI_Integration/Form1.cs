@@ -12,6 +12,7 @@ using MjpegProcessor;
 using System.Drawing.Drawing2D;
 using System.Net;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Panasonic_PLI_Integration
 {
@@ -47,7 +48,23 @@ namespace Panasonic_PLI_Integration
         private void btn_Open_Click(object sender, EventArgs e)
         {
 
-            
+            string user = Properties.Settings.Default.UserName;
+            string password = Properties.Settings.Default.Password;
+            string adderess = Properties.Settings.Default.ApiAddress;
+            string sendTrigger = Properties.Settings.Default.SendTriggerLoc;
+            string port = "4011";
+            string channel = "15";
+
+
+            var argus = user + "," + password + "," + adderess + "," + port + "," + channel;
+
+            //MessageBox.Show(argus);
+            //MessageBox.Show(sendTrigger + @"\SendTrigger.exe");
+
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = sendTrigger + @"\SendTrigger.exe";
+            startInfo.Arguments = argus;
+            Process.Start(startInfo);
 
         }
 

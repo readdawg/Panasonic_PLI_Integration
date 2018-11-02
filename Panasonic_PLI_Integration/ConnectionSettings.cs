@@ -25,6 +25,7 @@ namespace Panasonic_PLI_Integration
             tb_userName.Text = Properties.Settings.Default.UserName;
             tb_password.Text = Properties.Settings.Default.Password;
             tb_address.Text = Properties.Settings.Default.ApiAddress;
+            tb_sendTrigger.Text = Properties.Settings.Default.SendTriggerLoc;
 
             tb_userName.Focus();
         }
@@ -48,5 +49,17 @@ namespace Panasonic_PLI_Integration
             //Close settings window
             this.Close();
         }
+
+        private void btn_sendTrigger_Click(object sender, EventArgs e)
+        {
+
+            FolderBrowserDialog sendTriggerLoc = new FolderBrowserDialog();
+            sendTriggerLoc.Description = "SendTrigger.exe Location";
+
+            if (sendTriggerLoc.ShowDialog() == DialogResult.OK)
+            {
+                //Properties.Settings.Default.SendTriggerLoc = sendTriggerLoc.SelectedPath;
+            }
+        }        
     }
 }

@@ -14,5 +14,8 @@
     <Setting Name="IsConfigured" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="SendTriggerLoc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\MR98434\Documents\Software\01 - VI Send Trigger SDK</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

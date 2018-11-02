@@ -70,5 +70,17 @@ namespace Panasonic_PLI_Integration.Properties {
                 this["IsConfigured"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\MR98434\\Documents\\Software\\01 - VI Send Trigger SDK")]
+        public string SendTriggerLoc {
+            get {
+                return ((string)(this["SendTriggerLoc"]));
+            }
+            set {
+                this["SendTriggerLoc"] = value;
+            }
+        }
     }
 }

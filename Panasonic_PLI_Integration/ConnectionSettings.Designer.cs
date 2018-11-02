@@ -36,6 +36,9 @@
             this.tb_password = new System.Windows.Forms.TextBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_sendTrigger = new System.Windows.Forms.TextBox();
+            this.btn_sendTrigger = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_userName
@@ -89,7 +92,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(13, 92);
+            this.btn_save.Location = new System.Drawing.Point(13, 145);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 6;
@@ -99,7 +102,7 @@
             // 
             // btn_close
             // 
-            this.btn_close.Location = new System.Drawing.Point(215, 92);
+            this.btn_close.Location = new System.Drawing.Point(263, 145);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(75, 23);
             this.btn_close.TabIndex = 7;
@@ -107,11 +110,40 @@
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(260, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "SendTrigger.exe Location";
+            // 
+            // tb_sendTrigger
+            // 
+            this.tb_sendTrigger.Location = new System.Drawing.Point(9, 113);
+            this.tb_sendTrigger.Name = "tb_sendTrigger";
+            this.tb_sendTrigger.Size = new System.Drawing.Size(162, 20);
+            this.tb_sendTrigger.TabIndex = 9;
+            // 
+            // btn_sendTrigger
+            // 
+            this.btn_sendTrigger.Location = new System.Drawing.Point(177, 111);
+            this.btn_sendTrigger.Name = "btn_sendTrigger";
+            this.btn_sendTrigger.Size = new System.Drawing.Size(75, 23);
+            this.btn_sendTrigger.TabIndex = 10;
+            this.btn_sendTrigger.Text = "Browse";
+            this.btn_sendTrigger.UseVisualStyleBackColor = true;
+            this.btn_sendTrigger.Click += new System.EventHandler(this.btn_sendTrigger_Click);
+            // 
             // ConnectionSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 128);
+            this.ClientSize = new System.Drawing.Size(437, 180);
+            this.Controls.Add(this.btn_sendTrigger);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tb_sendTrigger);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.label3);
@@ -138,5 +170,8 @@
         private System.Windows.Forms.TextBox tb_password;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_sendTrigger;
+        private System.Windows.Forms.Button btn_sendTrigger;
     }
 }
