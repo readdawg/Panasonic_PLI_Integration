@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TokenAuth;
-using MjpegProcessor;
+//using TokenAuth;
+//using MjpegProcessor;
 using System.Drawing.Drawing2D;
 
 namespace Panasonic_PLI_Integration
@@ -18,9 +18,9 @@ namespace Panasonic_PLI_Integration
 
         // Declare variables
         string sEncryptedToken = "";
-        string adderess = "10.10.0.28";
-        string user = "administrator";
-        string password = "";
+        string adderess = Properties.Settings.Default.ApiAddress;
+        string user = Properties.Settings.Default.UserName;
+        string password = Properties.Settings.Default.Password;
         long timeout = 31622400;
         string cameraid = "785451355";
         
@@ -31,7 +31,14 @@ namespace Panasonic_PLI_Integration
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
+            //If Connection Settings have not been set, open Connection Settings on opening
+            if (Properties.Settings.Default.IsConfigured == false)
+            {
+                ConnectionSettings connSet = new ConnectionSettings();
+                connSet.Show();
+                connSet.TopMost = true;
+            }
 
         }
 
@@ -89,8 +96,13 @@ namespace Panasonic_PLI_Integration
 
         }
 
-
-        
+        private void connectionSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Show Connection settings form
+            ConnectionSettings connSet = new ConnectionSettings();
+            connSet.Show();
+            connSet.TopMost = true;
+        }
     }
         
 }
