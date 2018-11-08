@@ -27,6 +27,7 @@ namespace Panasonic_PLI_Integration
         long timeout = 31622400;
         string cameraid = "785451355";
         
+        
 
         public Form1()
         {
@@ -42,6 +43,8 @@ namespace Panasonic_PLI_Integration
                 connSet.Show();
                 connSet.TopMost = true;
             }
+
+            
 
         }
 
@@ -85,6 +88,8 @@ namespace Panasonic_PLI_Integration
             string user = Properties.Settings.Default.UserName;
             string password = Properties.Settings.Default.Password;
             string adderess = Properties.Settings.Default.ApiAddress;
+
+            lb_cameras.SelectedItem.
 
             //Generate encrypted user token
             var oUserToken = new TokenAuth.UserToken(user, password, timeout);
@@ -183,6 +188,16 @@ namespace Panasonic_PLI_Integration
         private void lb_Cameras_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+            if (lb_cameras.SelectedItems.Count == -1)
+            {
+                MessageBox.Show("Selected Item Changed");
+            }
+            else
+            {
+
+                MessageBox.Show("New Item Changed");
+            }
 
         }
     }
